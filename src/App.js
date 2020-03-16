@@ -25,8 +25,22 @@ import AddItem from "./Features/AddItem/AddItem";
 import Notifications from "./Features/Notifications/Notifications";
 import QueueRoundedIcon from '@material-ui/icons/QueueRounded';
 import NotificationsActiveRoundedIcon from '@material-ui/icons/NotificationsActiveRounded';
-
-
+import SearchIcon from '@material-ui/icons/Search';
+import StoreIcon from '@material-ui/icons/Store';
+import PostAddIcon from '@material-ui/icons/PostAdd';
+import DnsIcon from '@material-ui/icons/Dns';
+import TuneIcon from '@material-ui/icons/Tune';
+import MonetizationOnIcon from '@material-ui/icons/MonetizationOn';
+import ReorderIcon from '@material-ui/icons/Reorder';
+import HistoryIcon from '@material-ui/icons/History';
+import Reorder from "./Features/Reorder/Reorder";
+import AddStocks from "./Features/Add Stocks/AddStocks";
+import Inventory from "./Features/Inventory/Inventory";
+import Prices from "./Features/Prices/Prices";
+import Orders from "./Features/Orders/Orders";
+import History from "./Features/History/History";
+import Settings from "./Features/Settings/Settings";
+import Search from "./Features/Search/Search";
 
 const drawerWidth = 240;
 
@@ -85,7 +99,7 @@ const useStyles = makeStyles(theme => ({
     marginLeft: 0
   },
   toolbar: {
-    backgroundColor:'#00BFFF',
+    backgroundColor:'#1E90FF',
     color: 'white'
   }
 }));
@@ -147,6 +161,14 @@ function App() {
           </div>
           <Divider />
           <List>
+          <ListItem button key='Search'>
+              <ListItemIcon>
+                <SearchIcon fontSize="medium"/>
+              </ListItemIcon>
+              <Link to='/search'  style={{ textDecoration: 'none', color:'rgba(0, 0, 0, 0.87)' }}>
+                <ListItemText primary='Search' />
+              </Link>
+            </ListItem>
             <ListItem button key='Add Item'>
               <ListItemIcon>
                 <QueueRoundedIcon  fontSize="medium"/>
@@ -163,33 +185,65 @@ function App() {
                 <ListItemText primary='Notifications' />
               </Link>
             </ListItem>
-            {[
-              "Search",
-              "Reorder",
-              "Add Stocks",
-              "Inventory",
-              "Prices",
-              "Orders",
-              "History"
-            ].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
+            <ListItem button key='Reorder'>
+              <ListItemIcon>
+                <StoreIcon fontSize="medium"/>
+              </ListItemIcon>
+              <Link to='/reorder'  style={{ textDecoration: 'none', color:'rgba(0, 0, 0, 0.87)' }}>
+                <ListItemText primary='Reorder' />
+                </Link>
+            </ListItem>
+            <ListItem button key='Add Stocks'>
+              <ListItemIcon>
+                <PostAddIcon fontSize="medium"/>
+              </ListItemIcon>
+              <Link to='/addstocks'  style={{ textDecoration: 'none', color:'rgba(0, 0, 0, 0.87)' }}>
+                <ListItemText primary='Add Stocks' />
+                </Link>
+            </ListItem>
+            <ListItem button key='Inventory'>
+              <ListItemIcon>
+                <DnsIcon fontSize="medium"/>
+              </ListItemIcon>
+              <Link to='/inventory'  style={{ textDecoration: 'none', color:'rgba(0, 0, 0, 0.87)' }}>
+                <ListItemText primary='Inventory' />
+                </Link>
+            </ListItem>
+            <ListItem button key='Prices'>
+              <ListItemIcon>
+                <MonetizationOnIcon  fontSize="medium"/>
+              </ListItemIcon>
+              <Link to='/prices'  style={{ textDecoration: 'none', color:'rgba(0, 0, 0, 0.87)' }}>
+                <ListItemText primary='Prices' />
+                </Link>
+            </ListItem>
+            <ListItem button key='Orders'>
+              <ListItemIcon>
+                <ReorderIcon fontSize="medium"/>
+              </ListItemIcon>
+              <Link to='/orders'  style={{ textDecoration: 'none', color:'rgba(0, 0, 0, 0.87)' }}>
+                <ListItemText primary='Orders' />
+                </Link>
+            </ListItem>
+            <ListItem button key='History'>
+              <ListItemIcon>
+                <HistoryIcon fontSize="medium"/>
+              </ListItemIcon>
+              <Link to='/history'  style={{ textDecoration: 'none', color:'rgba(0, 0, 0, 0.87)' }}>
+                <ListItemText primary='History' />
+                </Link>
+            </ListItem>
           </List>
           <Divider />
           <List>
-            {["Settings", "Trash"].map((text, index) => (
-              <ListItem button key={text}>
-                <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} />
-              </ListItem>
-            ))}
+          <ListItem button key='Settings'>
+              <ListItemIcon>
+                <TuneIcon fontSize="medium"/>
+              </ListItemIcon>
+              <Link to='/settings'  style={{ textDecoration: 'none', color:'rgba(0, 0, 0, 0.87)' }}>
+                <ListItemText primary='Settings' />
+                </Link>
+            </ListItem>
           </List>
         </Drawer>
         <main
@@ -199,11 +253,35 @@ function App() {
         >
           <div className={classes.drawerHeader} />
           <Switch>
+          <Route path='/search'>
+              <Search />
+            </Route>
             <Route path='/addItem'>
               <AddItem />
             </Route>
             <Route path='/notifications'>
               <Notifications />
+            </Route>
+            <Route path='/reorder'>
+              <Reorder />
+            </Route>
+            <Route path='/addstocks'>
+              <AddStocks />
+            </Route>
+            <Route path='/inventory'>
+              <Inventory />
+            </Route>
+            <Route path='/prices'>
+              <Prices />
+            </Route>
+            <Route path='/orders'>
+              <Orders />
+            </Route>
+            <Route path='/history'>
+              <History />
+            </Route>
+            <Route path='/settings'>
+              <Settings />
             </Route>
           </Switch>
         </main>
