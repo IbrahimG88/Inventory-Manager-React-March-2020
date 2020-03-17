@@ -163,7 +163,7 @@ function App() {
           <List>
           <ListItem button key='Search'>
               <ListItemIcon>
-                <SearchIcon fontSize="medium"/>
+                <SearchIcon />
               </ListItemIcon>
               <Link to='/search'  style={{ textDecoration: 'none', color:'rgba(0, 0, 0, 0.87)' }}>
                 <ListItemText primary='Search' />
@@ -171,7 +171,7 @@ function App() {
             </ListItem>
             <ListItem button key='Add Item'>
               <ListItemIcon>
-                <QueueRoundedIcon  fontSize="medium"/>
+                <QueueRoundedIcon />
               </ListItemIcon>
               <Link to='/addItem'  style={{ textDecoration: 'none', color:'rgba(0, 0, 0, 0.87)' }}>
                 <ListItemText primary='Add Item' />
@@ -187,7 +187,7 @@ function App() {
             </ListItem>
             <ListItem button key='Reorder'>
               <ListItemIcon>
-                <StoreIcon fontSize="medium"/>
+                <StoreIcon />
               </ListItemIcon>
               <Link to='/reorder'  style={{ textDecoration: 'none', color:'rgba(0, 0, 0, 0.87)' }}>
                 <ListItemText primary='Reorder' />
@@ -195,7 +195,7 @@ function App() {
             </ListItem>
             <ListItem button key='Add Stocks'>
               <ListItemIcon>
-                <PostAddIcon fontSize="medium"/>
+                <PostAddIcon />
               </ListItemIcon>
               <Link to='/addstocks'  style={{ textDecoration: 'none', color:'rgba(0, 0, 0, 0.87)' }}>
                 <ListItemText primary='Add Stocks' />
@@ -203,7 +203,7 @@ function App() {
             </ListItem>
             <ListItem button key='Inventory'>
               <ListItemIcon>
-                <DnsIcon fontSize="medium"/>
+                <DnsIcon />
               </ListItemIcon>
               <Link to='/inventory'  style={{ textDecoration: 'none', color:'rgba(0, 0, 0, 0.87)' }}>
                 <ListItemText primary='Inventory' />
@@ -211,7 +211,7 @@ function App() {
             </ListItem>
             <ListItem button key='Prices'>
               <ListItemIcon>
-                <MonetizationOnIcon  fontSize="medium"/>
+                <MonetizationOnIcon  />
               </ListItemIcon>
               <Link to='/prices'  style={{ textDecoration: 'none', color:'rgba(0, 0, 0, 0.87)' }}>
                 <ListItemText primary='Prices' />
@@ -219,7 +219,7 @@ function App() {
             </ListItem>
             <ListItem button key='Orders'>
               <ListItemIcon>
-                <ReorderIcon fontSize="medium"/>
+                <ReorderIcon />
               </ListItemIcon>
               <Link to='/orders'  style={{ textDecoration: 'none', color:'rgba(0, 0, 0, 0.87)' }}>
                 <ListItemText primary='Orders' />
@@ -227,7 +227,7 @@ function App() {
             </ListItem>
             <ListItem button key='History'>
               <ListItemIcon>
-                <HistoryIcon fontSize="medium"/>
+                <HistoryIcon />
               </ListItemIcon>
               <Link to='/history'  style={{ textDecoration: 'none', color:'rgba(0, 0, 0, 0.87)' }}>
                 <ListItemText primary='History' />
@@ -238,7 +238,7 @@ function App() {
           <List>
           <ListItem button key='Settings'>
               <ListItemIcon>
-                <TuneIcon fontSize="medium"/>
+                <TuneIcon />
               </ListItemIcon>
               <Link to='/settings'  style={{ textDecoration: 'none', color:'rgba(0, 0, 0, 0.87)' }}>
                 <ListItemText primary='Settings' />
@@ -253,36 +253,18 @@ function App() {
         >
           <div className={classes.drawerHeader} />
           <Switch>
-          <Route path='/search'>
-              <Search />
-            </Route>
+          <Route path='/search' component={Search} />
             <Route path='/addItem'>
               <AddItem />
             </Route>
-            <Route path='/notifications'>
-              <Notifications />
-            </Route>
-            <Route path='/reorder'>
-              <Reorder />
-            </Route>
-            <Route path='/addstocks'>
-              <AddStocks />
-            </Route>
-            <Route path='/inventory'>
-              <Inventory />
-            </Route>
-            <Route path='/prices'>
-              <Prices />
-            </Route>
-            <Route path='/orders'>
-              <Orders />
-            </Route>
-            <Route path='/history'>
-              <History />
-            </Route>
-            <Route path='/settings'>
-              <Settings />
-            </Route>
+            <Route path='/notifications' component={Notifications} />
+            <Route path='/reorder' component={Reorder} />
+            <Route path='/addstocks' component={AddStocks} />
+            <Route path='/inventory' component={Inventory}/>
+            <Route path='/prices' component={Prices}/>
+            <Route path='/orders' component={Orders} />
+            <Route path='/history' component={History}/>
+            <Route path='/settings' component={Settings}/>
           </Switch>
         </main>
       </div>
